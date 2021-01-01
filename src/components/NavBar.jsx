@@ -55,7 +55,7 @@ const NavBar = ({ history }) => {
     const open = Boolean(anchorEl);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
-
+    const baseURL = "/imdb-analytics-app";
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -105,11 +105,17 @@ const NavBar = ({ history }) => {
                                 open={open}
                                 onClose={() => setAnchorEl(null)}
                             >
-                                <MenuItem onClick={() => handlePageChange("/")}>
+                                <MenuItem
+                                    onClick={() =>
+                                        handlePageChange(`${baseURL}/`)
+                                    }
+                                >
                                     Home
                                 </MenuItem>
                                 <MenuItem
-                                    onClick={() => handlePageChange("/movies")}
+                                    onClick={() =>
+                                        handlePageChange(`${baseURL}/movies`)
+                                    }
                                 >
                                     Movies
                                 </MenuItem>
@@ -121,8 +127,9 @@ const NavBar = ({ history }) => {
                                 <IconButton
                                     color="inherit"
                                     className={classes.menuButton}
-                                    onClick={() => handlePageChange("/")}
-                                    disableElevation
+                                    onClick={() =>
+                                        handlePageChange(`${baseURL}/`)
+                                    }
                                 >
                                     <HomeIcon />
                                 </IconButton>
@@ -131,8 +138,9 @@ const NavBar = ({ history }) => {
                                 <IconButton
                                     color="inherit"
                                     className={classes.menuButton}
-                                    onClick={() => handlePageChange("/movies")}
-                                    disableElevation
+                                    onClick={() =>
+                                        handlePageChange(`${baseURL}/movies`)
+                                    }
                                 >
                                     <MovieIcon />
                                 </IconButton>
