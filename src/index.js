@@ -1,18 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "@material-ui/core";
 import App from "./App";
+import theme from "./theme";
 import reportWebVitals from "./reportWebVitals";
+import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
-import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <BrowserRouter>
+    <BrowserRouter>
+        <ThemeProvider theme={theme}>
             <App />
-        </BrowserRouter>
-    </React.StrictMode>,
+        </ThemeProvider>
+    </BrowserRouter>,
     document.getElementById("root")
 );
 

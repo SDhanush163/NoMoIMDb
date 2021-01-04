@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import {
     AppBar,
     IconButton,
     makeStyles,
-    Menu,
-    MenuItem,
     Toolbar,
     Tooltip,
     Typography,
@@ -15,16 +13,17 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
 import MovieIcon from "@material-ui/icons/Movie";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
+import Drawer from "./common/Drawer";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
+        height: 60,
     },
     header: {
-        background: "transparent",
-        color: "black",
+        background: "white",
         boxShadow: "0px 0px 0px 0px",
+        color: theme.palette.type === "light" ? "black" : "white",
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -49,25 +48,51 @@ function TooltipWithStyles(props) {
     return <Tooltip arrow classes={classes} {...props} />;
 }
 
-const NavBar = ({ history }) => {
+const NavBar = ({ appTheme, baseURL, history, location }) => {
     const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
-    const baseURL = "/imdb-analytics-app";
-    const handleMenu = (event) => {
-        setAnchorEl(event.currentTarget);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+
+    let [pages, setPages] = useState([
+        {
+            pageName: "Home",
+            pageURL: "/",
+            pageIcon: <HomeIcon />,
+            selected: location.pathname === `${baseURL}/` ? true : false,
+        },
+        {
+            pageName: "Movies",
+            pageURL: "/movies",
+            pageIcon: <MovieIcon />,
+            selected: location.pathname === `${baseURL}/movies` ? true : false,
+        },
+    ]);
+
+    const handleDrawer = (event) => {
+        setAnchorEl("open");
     };
 
-    const handlePageChange = (pageURL) => {
-        history.push(pageURL);
+    const handleDrawerClose = () => {
+        setAnchorEl(null);
+    };
+
+    const handlePageChange = (pageURL, pageName) => {
+        let newpages = [...pages];
+        for (var i in newpages) {
+            newpages[i].selected = false;
+            if (newpages[i].pageName === pageName) newpages[i].selected = true;
+        }
+        setPages(pages);
+
+        history.push(`${baseURL}${pageURL}`);
         setAnchorEl(null);
     };
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" className={classes.header}>
+            <AppBar position="fixed" className={classes.header}>
                 <Toolbar>
                     <Typography
                         variant="h6"
@@ -76,9 +101,6 @@ const NavBar = ({ history }) => {
                     >
                         Placeholder
                     </Typography>
-                    <IconButton color="inherit" className={classes.menuButton}>
-                        <Brightness4Icon />
-                    </IconButton>
                     {isMobile ? (
                         <div>
                             <IconButton
@@ -86,65 +108,43 @@ const NavBar = ({ history }) => {
                                 className={classes.menuButton}
                                 color="inherit"
                                 aria-label="menu"
-                                onClick={handleMenu}
+                                onClick={handleDrawer}
                             >
                                 <MenuIcon />
                             </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorEl}
-                                anchorOrigin={{
-                                    vertical: "top",
-                                    horizontal: "right",
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: "top",
-                                    horizontal: "right",
-                                }}
+                            <Drawer
                                 open={open}
-                                onClose={() => setAnchorEl(null)}
-                            >
-                                <MenuItem
-                                    onClick={() =>
-                                        handlePageChange(`${baseURL}/`)
-                                    }
-                                >
-                                    Home
-                                </MenuItem>
-                                <MenuItem
-                                    onClick={() =>
-                                        handlePageChange(`${baseURL}/movies`)
-                                    }
-                                >
-                                    Movies
-                                </MenuItem>
-                            </Menu>
+                                handleOpen={handleDrawer}
+                                handleClose={handleDrawerClose}
+                                pages={pages}
+                                onSelectPage={(url) => handlePageChange(url)}
+                            />
                         </div>
                     ) : (
                         <div>
-                            <TooltipWithStyles title="Home">
-                                <IconButton
-                                    color="inherit"
-                                    className={classes.menuButton}
-                                    onClick={() =>
-                                        handlePageChange(`${baseURL}/`)
-                                    }
+                            {pages.map((page) => (
+                                <TooltipWithStyles
+                                    key={page.pageName}
+                                    title={page.pageName}
                                 >
-                                    <HomeIcon />
-                                </IconButton>
-                            </TooltipWithStyles>
-                            <TooltipWithStyles title="Movies">
-                                <IconButton
-                                    color="inherit"
-                                    className={classes.menuButton}
-                                    onClick={() =>
-                                        handlePageChange(`${baseURL}/movies`)
-                                    }
-                                >
-                                    <MovieIcon />
-                                </IconButton>
-                            </TooltipWithStyles>
+                                    <IconButton
+                                        color={
+                                            !page.selected
+                                                ? "inherit"
+                                                : "primary"
+                                        }
+                                        className={classes.menuButton}
+                                        onClick={() =>
+                                            handlePageChange(
+                                                page.pageURL,
+                                                page.pageName
+                                            )
+                                        }
+                                    >
+                                        {page.pageIcon}
+                                    </IconButton>
+                                </TooltipWithStyles>
+                            ))}
                         </div>
                     )}
                 </Toolbar>

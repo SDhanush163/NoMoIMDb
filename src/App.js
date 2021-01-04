@@ -14,7 +14,7 @@ class App extends Component {
         const { baseURL } = this.state;
         return (
             <React.Fragment>
-                <NavBar />
+                <NavBar baseURL={baseURL} />
                 <main className="container">
                     <Switch>
                         <Route
