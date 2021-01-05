@@ -18,7 +18,7 @@ import Drawer from "./common/Drawer";
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        height: 60,
+        height: 70,
     },
     header: {
         background: "white",
@@ -60,7 +60,11 @@ const NavBar = ({ appTheme, baseURL, history, location }) => {
             pageName: "Home",
             pageURL: "/",
             pageIcon: <HomeIcon />,
-            selected: location.pathname === `${baseURL}/` ? true : false,
+            selected:
+                location.pathname === `${baseURL}` ||
+                location.pathname === `${baseURL}/`
+                    ? true
+                    : false,
         },
         {
             pageName: "Movies",

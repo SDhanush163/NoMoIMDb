@@ -26,7 +26,7 @@ const Drawer = ({ open, pages, handleOpen, handleClose, onSelectPage }) => {
         >
             <div className={classes.list} role="presentation">
                 <List>
-                    {pages.map((item, index) => {
+                    {pages.map((item) => {
                         const { pageName, pageURL, pageIcon } = item;
                         return (
                             <ListItem
