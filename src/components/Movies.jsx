@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import data from "./../data/imdb_movies_data.json";
+import Accordion from "./common/Accordion";
 
 class Movies extends Component {
     state = {
@@ -18,7 +19,12 @@ class Movies extends Component {
     }
 
     render() {
-        return <div>Movies go here</div>;
+        const { movies } = this.state;
+        return (
+            <div>
+                <Accordion data={movies} />
+            </div>
+        );
     }
 }
 
