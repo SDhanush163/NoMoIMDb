@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/imdb-analytics-app/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/imdb-analytics-app/static/js/main.1ad2cb73.chunk.js",
-    "main.js.map": "/imdb-analytics-app/static/js/main.1ad2cb73.chunk.js.map",
-    "runtime-main.js": "/imdb-analytics-app/static/js/runtime-main.cb56650a.js",
-    "runtime-main.js.map": "/imdb-analytics-app/static/js/runtime-main.cb56650a.js.map",
+    "main.js": "/imdb-analytics-app/static/js/main.dc577916.chunk.js",
+    "main.js.map": "/imdb-analytics-app/static/js/main.dc577916.chunk.js.map",
+    "runtime-main.js": "/imdb-analytics-app/static/js/runtime-main.1283b675.js",
+    "runtime-main.js.map": "/imdb-analytics-app/static/js/runtime-main.1283b675.js.map",
     "static/css/2.f777c95f.chunk.css": "/imdb-analytics-app/static/css/2.f777c95f.chunk.css",
-    "static/js/2.11eb5622.chunk.js": "/imdb-analytics-app/static/js/2.11eb5622.chunk.js",
-    "static/js/2.11eb5622.chunk.js.map": "/imdb-analytics-app/static/js/2.11eb5622.chunk.js.map",
-    "static/js/3.32fc2270.chunk.js": "/imdb-analytics-app/static/js/3.32fc2270.chunk.js",
-    "static/js/3.32fc2270.chunk.js.map": "/imdb-analytics-app/static/js/3.32fc2270.chunk.js.map",
+    "static/js/2.859d0c6a.chunk.js": "/imdb-analytics-app/static/js/2.859d0c6a.chunk.js",
+    "static/js/2.859d0c6a.chunk.js.map": "/imdb-analytics-app/static/js/2.859d0c6a.chunk.js.map",
+    "static/js/3.c22ee490.chunk.js": "/imdb-analytics-app/static/js/3.c22ee490.chunk.js",
+    "static/js/3.c22ee490.chunk.js.map": "/imdb-analytics-app/static/js/3.c22ee490.chunk.js.map",
     "index.html": "/imdb-analytics-app/index.html",
     "static/css/2.f777c95f.chunk.css.map": "/imdb-analytics-app/static/css/2.f777c95f.chunk.css.map",
     "static/css/main.6dea0f05.chunk.css.map": "/imdb-analytics-app/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.11eb5622.chunk.js.LICENSE.txt": "/imdb-analytics-app/static/js/2.11eb5622.chunk.js.LICENSE.txt",
+    "static/js/2.859d0c6a.chunk.js.LICENSE.txt": "/imdb-analytics-app/static/js/2.859d0c6a.chunk.js.LICENSE.txt",
     "static/media/font-awesome.css": "/imdb-analytics-app/static/media/fontawesome-webfont.f691f37e.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.cb56650a.js",
+    "static/js/runtime-main.1283b675.js",
     "static/css/2.f777c95f.chunk.css",
-    "static/js/2.11eb5622.chunk.js",
+    "static/js/2.859d0c6a.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.1ad2cb73.chunk.js"
+    "static/js/main.dc577916.chunk.js"
   ]
 }
