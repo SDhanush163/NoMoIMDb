@@ -77,7 +77,7 @@ const Accordion = ({ data }) => {
                                 {movie_name}
                             </Typography>
                             <Typography className={classes.rating}>
-                                {rating}&nbsp;<i class="fa fa-star"></i>
+                                {rating}&nbsp;<i className="fa fa-star"></i>
                             </Typography>
                         </AccordionSummary>
 
