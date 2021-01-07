@@ -3,6 +3,7 @@ import {
     Accordion as MUIAccordion,
     AccordionDetails,
     AccordionSummary,
+    Grid,
     makeStyles,
     Typography,
 } from "@material-ui/core";
@@ -25,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
     rating: {
         fontSize: theme.typography.pxToRem(15),
     },
+    image: {
+        margin: 10,
+        width: "80%",
+    },
 }));
 
 const Accordion = ({ data }) => {
@@ -41,24 +46,25 @@ const Accordion = ({ data }) => {
                 const {
                     ranking,
                     movie_name,
-                    // url,
-                    // year,
+                    url,
+                    year,
                     rating,
                     // vote_count,
-                    // summary,
+                    summary,
                     // production,
                     // director,
                     // writers,
-                    // genres,
-                    // release_date,
+                    genres,
+                    release_date,
                     // censor_rating,
-                    // movie_length,
+                    movie_length,
                     // country,
                     // language,
                     // budget,
                     // gross_worldwide,
                     // gross_usa,
                     // opening_week_usa,
+                    poster_image,
                 } = item;
                 return (
                     <MUIAccordion
@@ -77,16 +83,38 @@ const Accordion = ({ data }) => {
                                 {movie_name}
                             </Typography>
                             <Typography className={classes.rating}>
-                                {rating}&nbsp;<i className="fa fa-star"></i>
+                                {`${rating} / 10`}&nbsp;
+                                <i className="fa fa-star"></i>
                             </Typography>
                         </AccordionSummary>
 
                         <AccordionDetails>
-                            <Typography>
-                                Nulla facilisi. Phasellus sollicitudin nulla et
-                                quam mattis feugiat. Aliquam eget maximus est,
-                                id dignissim quam.
-                            </Typography>
+                            <Grid container>
+                                <Grid item xs={4}>
+                                    <img
+                                        src={poster_image}
+                                        alt={`${movie_name} poster`}
+                                        className={classes.image}
+                                    />
+                                </Grid>
+                                <Grid item xs={8}>
+                                    <Typography>
+                                        {`${year} | ${movie_length} | ${genres
+                                            .filter((genre) => {
+                                                return genre !== " ";
+                                            })
+                                            .join(", ")} | ${release_date} | `}
+                                        <a
+                                            href={url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Link
+                                        </a>
+                                    </Typography>
+                                    <Typography>{summary}</Typography>
+                                </Grid>
+                            </Grid>
                         </AccordionDetails>
                     </MUIAccordion>
                 );
