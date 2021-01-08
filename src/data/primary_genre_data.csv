@@ -1,0 +1,12 @@
+,genre,count,mean_imdb_rating
+0,Action,41,8.371
+1,Adventure,20,8.21
+2,Animation,21,8.276
+3,Biography,22,8.264
+4,Comedy,25,8.276
+5,Crime,38,8.366
+6,Drama,72,8.283
+7,Film-Noir,1,8.1
+8,Horror,3,8.333
+9,Mystery,4,8.325
+10,Western,3,8.533

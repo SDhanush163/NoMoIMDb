@@ -1,0 +1,27 @@
+,country,count,mean_imdb_rating
+0,Argentina,2,8.15
+1,Australia,3,8.1
+2,Brazil,1,8.6
+3,Canada,2,8.2
+4,Denmark,1,8.3
+5,Estonia,1,8.2
+6,France,9,8.222
+7,Germany,6,8.233
+8,Hong Kong,1,8.1
+9,India,9,8.322
+10,Iran,2,8.3
+11,Ireland,1,8.1
+12,Italy,8,8.437
+13,Japan,15,8.34
+14,Lebanon,1,8.4
+15,Mexico,2,8.15
+16,New Zealand,3,8.8
+17,South Korea,4,8.3
+18,Soviet Union,3,8.2
+19,Spain,2,8.15
+20,Sweden,5,8.16
+21,Turkey,2,8.25
+22,UK,23,8.243
+23,USA,141,8.324
+24,West Germany,2,8.2
+25,Yugoslavia,1,8.2
