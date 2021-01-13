@@ -7,16 +7,17 @@ import { paginate } from "../utils/paginate";
 class Movies extends Component {
     state = {
         movies: [],
-        timeStamp: "",
+        timestamp: new Date(),
         currentPage: 1,
         pageSize: 10,
     };
 
     componentDidMount() {
-        const { timeStamp, imdb_movies: movies } = data;
+        let { timestamp, imdb_movies: movies } = data;
+        timestamp = new Date(timestamp);
         this.setState({
             movies,
-            timeStamp,
+            timestamp,
         });
     }
 
@@ -25,10 +26,20 @@ class Movies extends Component {
     };
 
     render() {
-        const { movies: allMovies, currentPage, pageSize } = this.state;
+        const {
+            movies: allMovies,
+            currentPage,
+            pageSize,
+            timestamp,
+        } = this.state;
         const movies = paginate(allMovies, currentPage, pageSize);
+
         return (
             <div>
+                <p>
+                    Movie data was last retrieved on {timestamp.toDateString()}{" "}
+                    at {timestamp.toLocaleTimeString()}
+                </p>
                 <UIPagination
                     count={allMovies.length / pageSize}
                     page={currentPage}
