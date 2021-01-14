@@ -6,6 +6,7 @@ class DashBoard extends Component {
         data: [],
     };
     componentDidMount() {
+        document.title = "NoMoIMDb - Home";
         this.setState({
             data,
         });

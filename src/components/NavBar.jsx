@@ -14,6 +14,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
 import MovieIcon from "@material-ui/icons/Movie";
 import Drawer from "./common/Drawer";
+import logo_full from "../images/NoMoIMDb_full_width.png";
+import logo_mini from "../images/NoMoIMDb_mini.png";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         flexGrow: 1,
+    },
+    logo: {
+        height: 60,
     },
 }));
 
@@ -99,11 +104,14 @@ const NavBar = ({ appTheme, baseURL, history, location }) => {
             <AppBar position="fixed" className={classes.header}>
                 <Toolbar>
                     <Typography
-                        variant="h6"
                         className={classes.title}
                         onClick={() => handlePageChange("/")}
                     >
-                        Placeholder
+                        <img
+                            src={isMobile ? logo_mini : logo_full}
+                            alt="NoMoIMDb"
+                            className={classes.logo}
+                        />
                     </Typography>
                     {isMobile ? (
                         <div>

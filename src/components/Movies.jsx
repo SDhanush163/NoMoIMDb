@@ -19,6 +19,7 @@ class Movies extends Component {
             movies,
             timestamp,
         });
+        document.title = "NoMoIMDb - Movies";
     }
 
     handlePageChange = (event, value) => {
