@@ -8,7 +8,7 @@ import NotFound from "./components/NotFound";
 
 class App extends Component {
     state = {
-        baseURL: "/imdb-analytics-app",
+        baseURL: "/NoMoIMDb",
     };
     render() {
         const { baseURL } = this.state;
