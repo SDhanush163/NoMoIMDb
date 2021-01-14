@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/NoMoIMDb/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/NoMoIMDb/static/js/main.9193ffa3.chunk.js",
-    "main.js.map": "/NoMoIMDb/static/js/main.9193ffa3.chunk.js.map",
+    "main.js": "/NoMoIMDb/static/js/main.126c0a6a.chunk.js",
+    "main.js.map": "/NoMoIMDb/static/js/main.126c0a6a.chunk.js.map",
     "runtime-main.js": "/NoMoIMDb/static/js/runtime-main.417ed1ac.js",
     "runtime-main.js.map": "/NoMoIMDb/static/js/runtime-main.417ed1ac.js.map",
     "static/css/2.13c932b8.chunk.css": "/NoMoIMDb/static/css/2.13c932b8.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.13c932b8.chunk.css",
     "static/js/2.ad57a03d.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.9193ffa3.chunk.js"
+    "static/js/main.126c0a6a.chunk.js"
   ]
 }
